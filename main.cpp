@@ -1,21 +1,22 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <ncurses/ncurses.h> // Подключаем заголовочный файл ncurses
+#include <ncurses/ncurses.h>
 
 int main() {
-  initscr();        // Инициализация ncurses
-  cbreak();         // Отключаем буферизацию ввода (сразу отправляем символы)
-  noecho();         // Отключаем отображение вводимых символов
+  initscr(); 
+  cbreak();
+  noecho();
 
   std::string line;
   std::string fileName("text.txt");
 
   std::ifstream in(fileName);
   if (in.is_open()) {
-    int row = 0;
+    int row = 1;
     while (std::getline(in, line)) {
-      mvprintw(row, 0, line.c_str()); // Выводим строку в координатах (row, 0)
+      mvprintw(row - 1, 0, (std::to_string(row) + ".").c_str());
+      mvprintw(row - 1, 4, line.c_str());
       row++;
     }
   }
@@ -27,8 +28,8 @@ int main() {
   }
   out.close();
 
-  mvprintw(LINES - 1, 0, "Press any key to continue..."); // Выводим сообщение внизу экрана
-  getch();         // Ожидаем нажатия клавиши
-  endwin();         // Завершаем работу с ncurses
+  mvprintw(LINES - 1, 0, "Press any key to continue...");
+  getch();
+  endwin();
   return 0;
 }
