@@ -22,11 +22,11 @@ int main() {
   }
   in.close();
 
-  std::ofstream out(fileName, std::ios::app);
-  if (out.is_open()) {
-    out << "Welcome to C++" << std::endl;
-  }
-  out.close();
+  //std::ofstream out(fileName, std::ios::app);
+  //if (out.is_open()) {
+  //  out << "Welcome to C++" << std::endl;
+  //}
+  //out.close();
 
   mvprintw(LINES - 1, 0, "Press any key to continue...");
   getch();
