@@ -1,13 +1,20 @@
-Welcome to C++
-Welcome to C++
-Welcome to C++
-Welcome to C++
-Welcome to C++
-Welcome to C++
-Welcome to C++
-Welcome to C++
-Welcome to C++
-Welcome to C++
-Welcome to C++
-Welcome to C++
-Welcome to C++
+C++ is a powerful language.
+It supports various paradigms.
+Object-oriented programming is key.
+Classes and objects are central.
+Polymorphism allows flexibility.
+Inheritance enables code reuse.
+Templates provide generic types.
+STL offers useful containers.
+Vectors, lists, and maps exist.
+Algorithms like sort and find.
+Smart pointers manage memory.
+RAII prevents memory leaks.
+Exceptions handle errors well.
+Namespaces organize the code.
+C++11 introduced many features.
+Lambdas enable concise code.
+Auto keyword infers types.
+Range-based loops are elegant.
+Concurrency is now supported.
+Modern C++ is constantly evolving.
