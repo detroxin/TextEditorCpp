@@ -5,31 +5,22 @@
 
 int main() {
   initscr();
-
-  if (has_colors()) {
-    start_color();
-
-    short color_cream = 10;
-    init_color(color_cream,
-              255 * 0.95, 255 * 0.9,
-              255 * 0.8);
-
-    init_pair(1, color_cream, COLOR_BLACK);
-
-    bkgd(COLOR_PAIR(1));
-    attron(COLOR_PAIR(1));
-  }
-  else {
-    printw("Your terminal does not support colors.\n");
-  }
-
   cbreak();
-  noecho();
 
   std::string line;
-  std::string fileName("text.txt");
+  char fileNameBuffer[256];
 
-  printw("My terminal supports %d colors.\n", COLORS);
+  printw("Enter the file name: ");
+  getstr(fileNameBuffer);
+
+  std::string fileName(fileNameBuffer);
+
+  printw("FileName: ");
+  printw(fileName.c_str());
+  printw("\n");
+  refresh();
+
+  fileName = "TextFiles/" + fileName;
 
   std::ifstream in(fileName);
   if (in.is_open()) {
@@ -39,19 +30,17 @@ int main() {
       printw(" ");
       printw(line.c_str());
       printw("\n");
+      refresh();
       row++;
     }
+  } else {
+    printw("Error opening file.\n");
+    refresh();
   }
   in.close();
 
-  // std::ofstream out(fileName, std::ios::app);
-  // if (out.is_open()) {
-  //  out << "Welcome to C++" << std::endl;
-  // }
-  // out.close();
-
-  printw("\n\nPress any key to continue...\n");
-  attroff(COLOR_PAIR(1));
+  printw("\nPress any key to continue...\n");
+  refresh();
   getch();
   endwin();
   return 0;
